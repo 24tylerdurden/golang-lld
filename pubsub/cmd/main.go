@@ -2,6 +2,7 @@ package main
 
 import (
 	"pubsub/pubsub"
+	"time"
 )
 
 func main() {
@@ -12,8 +13,11 @@ func main() {
 	sports := pubsub.NewTopic(2, "sports")
 
 	// subscribers
-	alice := &pubsub.PoliticalNewSubscriber{Name: "alice"}
-	bob := &pubsub.SportsNewsSubscriber{Name: "bob"}
+	alice := pubsub.NewPoliticalNewsSubscriber("alice")
+	bob := pubsub.NewSportsNewsSubscriber("bob")
+
+	alice.Listen()
+	bob.Listen()
 	ps.AddSubscriberToTopic(politics, alice)
 	ps.AddSubscriberToTopic(sports, bob)
 
@@ -23,5 +27,7 @@ func main() {
 
 	poPublisher.PublishToTopic(politics, pubsub.NewEvent("Election Results are announced"))
 	spPublisher.PublishToTopic(sports, pubsub.NewEvent("Team A won the match"))
+
+	time.Sleep(2 * time.Second)
 
 }

@@ -32,6 +32,6 @@ func (p *PubSub) PublishToTopic(topic *Topic, event *Event) {
 	defer p.mu.Unlock()
 
 	for _, sub := range p.subscribers[topic.Id] {
-		sub.ReceiveEvent(event)
+		go sub.ReceiveEvent(event)
 	}
 }
