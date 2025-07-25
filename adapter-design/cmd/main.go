@@ -1,7 +1,6 @@
 package main
 
-import "adapter-design/adapters"
-
 func main() {
-	adapters.TestBascAdapter()
+	// adapters.TestBascAdapter()
+	// adapters.TestAdapterErrorHandling()
 }
