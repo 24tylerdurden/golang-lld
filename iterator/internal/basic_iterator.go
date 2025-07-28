@@ -86,7 +86,7 @@ func TestBasicIterator() {
 	list.Add("Second")
 	list.Add("Third")
 
-	// Use Iterator
+	// This is list Iterator
 	itr := list.CreateIterator()
 
 	for itr.HasNext() {
