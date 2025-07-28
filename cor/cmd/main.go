@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
-	internal.TestHandler()
+	// internal.TestHandler()
+	internal.TestFunctionalHandlers()
 }
