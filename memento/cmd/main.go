@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	currState := NewOriginator()
+	careTacker := NewCareTacker()
+	currState := NewOriginator(careTacker)
 
 	currState.AddText("Adding First State : Pavan Illa ")
 	currState.SavePoint()

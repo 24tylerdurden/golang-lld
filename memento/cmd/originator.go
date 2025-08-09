@@ -1,16 +1,18 @@
 package main
 
-import "time"
+import (
+	"time"
+)
 
 // this is the state which we want to preserve
 type Originator struct {
 	state      string
-	careTacker *CareTracker
+	careTacker ICareTacker
 }
 
-func NewOriginator() Originator {
+func NewOriginator(careTacker ICareTacker) Originator {
 	return Originator{
-		careTacker: NewCareTacker(),
+		careTacker: careTacker,
 	}
 }
 
